@@ -1,5 +1,14 @@
+com/petclinic/kcpetclinic/model/Vet.class
+com/petclinic/kcpetclinic/services/map/OwnerServiceMap.class
+com/petclinic/kcpetclinic/services/map/AbstractmapService.class
+com/petclinic/kcpetclinic/services/map/PetServiceMap.class
+com/petclinic/kcpetclinic/services/PetService.class
+com/petclinic/kcpetclinic/services/VetService.class
+com/petclinic/kcpetclinic/services/map/VetServiceMap.class
+com/petclinic/kcpetclinic/model/PetType.class
+com/petclinic/kcpetclinic/model/BaseEntity.class
 com/petclinic/kcpetclinic/model/Person.class
 com/petclinic/kcpetclinic/model/Owner.class
-com/petclinic/kcpetclinic/model/PetType.class
-com/petclinic/kcpetclinic/model/Vet.class
 com/petclinic/kcpetclinic/model/Pet.class
+com/petclinic/kcpetclinic/services/OwnerService.class
+com/petclinic/kcpetclinic/services/CrudService.class
