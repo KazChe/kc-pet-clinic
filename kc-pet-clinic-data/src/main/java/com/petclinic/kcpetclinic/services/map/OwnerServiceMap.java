@@ -7,7 +7,7 @@ import java.util.Set;
 
 public class OwnerServiceMap
         extends AbstractmapService<Owner, Long>
-        implements OwnerService<Owner, Long> {
+        implements OwnerService {
 
     public Set<Owner> findAll() {
         return super.findAll();
