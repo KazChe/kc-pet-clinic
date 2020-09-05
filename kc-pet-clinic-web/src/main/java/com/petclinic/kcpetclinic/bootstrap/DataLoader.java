@@ -4,21 +4,19 @@ import com.petclinic.kcpetclinic.model.Owner;
 import com.petclinic.kcpetclinic.model.Vet;
 import com.petclinic.kcpetclinic.services.OwnerService;
 import com.petclinic.kcpetclinic.services.VetService;
-import com.petclinic.kcpetclinic.services.map.OwnerServiceMap;
-import com.petclinic.kcpetclinic.services.map.VetServiceMap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 @Component
 public class DataLoader implements CommandLineRunner {
 
-    // get handle on services
+    // constructor injecion
     private final OwnerService ownerService;
     private final VetService vetService;
 
-    public DataLoader() {
-        ownerService = new OwnerServiceMap();
-        vetService   = new VetServiceMap();
+    public DataLoader(OwnerService ownerService, VetService vetService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
 
     @Override
