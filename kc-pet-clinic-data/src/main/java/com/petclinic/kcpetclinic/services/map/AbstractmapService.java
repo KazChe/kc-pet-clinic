@@ -1,13 +1,12 @@
 package com.petclinic.kcpetclinic.services.map;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import com.petclinic.kcpetclinic.model.BaseEntity;
 
-public abstract class AbstractmapService<T, ID> {
+import java.util.*;
 
-    protected Map<ID, T> map = new HashMap<ID, T>();
+public abstract class AbstractmapService<T extends BaseEntity, ID extends Long> {
+
+    protected Map<Long, T> map = (Map<Long, T>) new HashMap<ID, T>();
 
     Set<T> findAll() {
         return new HashSet(map.values());
@@ -17,8 +16,15 @@ public abstract class AbstractmapService<T, ID> {
         return map.get(id);
     }
 
-    T save(ID id, T object) {
-        map.put(id, object);
+    T save(T object) {
+        if(object != null) {
+            if(object.getId() == null) {
+                object.setId(getNextId());
+            }
+            map.put(object.getId(), object);
+        } else {
+            throw new RuntimeException(("object can not be null"));
+        }
         return object;
     }
 
@@ -28,5 +34,16 @@ public abstract class AbstractmapService<T, ID> {
 
     void delete(final T object) {
         map.entrySet().removeIf(entry -> entry.getValue().equals(object));
+    }
+
+    private Long getNextId() {
+        Long nextId = null;
+
+        try {
+            nextId = Collections.max(map.keySet()) + 1;
+        } catch (NoSuchElementException e) {
+            nextId = 1L;
+        }
+        return nextId;
     }
 }

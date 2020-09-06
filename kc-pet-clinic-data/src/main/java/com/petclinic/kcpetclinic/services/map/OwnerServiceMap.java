@@ -20,7 +20,7 @@ public class OwnerServiceMap
     }
 
     public Owner save(Owner object) {
-        return super.save(object.getId(), object);
+        return super.save(object);
     }
 
     public void delete(Owner object) {
