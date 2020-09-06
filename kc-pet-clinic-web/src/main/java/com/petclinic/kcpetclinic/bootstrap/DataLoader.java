@@ -45,7 +45,7 @@ public class DataLoader implements CommandLineRunner {
         Vet vet2 = new Vet();
         vet2.setFirstName("Chosu");
         vet2.setLastName("Chosian");
-        vet2.setId(600L);
+        vet2.setId(900L);
         vetService.save(vet2);
 
         System.out.println("....Vet data created...");

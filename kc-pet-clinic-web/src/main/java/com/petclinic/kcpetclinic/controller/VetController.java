@@ -1,16 +1,22 @@
 package com.petclinic.kcpetclinic.controller;
 
+import com.petclinic.kcpetclinic.services.VetService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class VetController {
 
-    public VetController() {
+    private final VetService vetService;
+
+    public VetController(VetService vetService) {
+        this.vetService = vetService;
     }
 
-    @RequestMapping("/vet")
-    public String vetIndex() {
+    @RequestMapping("/vets")
+    public String vetIndex(Model model) {
+        model.addAttribute("vets", vetService.findAll());
         return  "vets/index";
     }
 }
