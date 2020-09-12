@@ -68,7 +68,7 @@ local.properties
 # Maven
 ######################
 /log/
-/target/8
+/target/*
 /kc-pet-clinic-data/target/*
 /kc-pet-clinic-web/target/*
 
