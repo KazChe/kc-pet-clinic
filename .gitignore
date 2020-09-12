@@ -68,7 +68,9 @@ local.properties
 # Maven
 ######################
 /log/
-/target/
+/target/8
+/kc-pet-clinic-data/target/*
+/kc-pet-clinic-web/target/*
 
 ######################
 # Gradle

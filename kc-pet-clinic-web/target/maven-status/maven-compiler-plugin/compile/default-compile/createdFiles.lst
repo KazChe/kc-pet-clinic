@@ -1,1 +1,5 @@
+com/petclinic/kcpetclinic/controller/VetController.class
 com/petclinic/kcpetclinic/KcPetClinicApplication.class
+com/petclinic/kcpetclinic/controller/OwnerController.class
+com/petclinic/kcpetclinic/bootstrap/DataLoader.class
+com/petclinic/kcpetclinic/controller/IndexController.class
