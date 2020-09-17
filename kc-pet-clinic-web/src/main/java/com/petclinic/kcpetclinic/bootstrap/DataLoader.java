@@ -1,11 +1,9 @@
 package com.petclinic.kcpetclinic.bootstrap;
 
-import com.petclinic.kcpetclinic.model.Owner;
-import com.petclinic.kcpetclinic.model.Pet;
-import com.petclinic.kcpetclinic.model.PetType;
-import com.petclinic.kcpetclinic.model.Vet;
+import com.petclinic.kcpetclinic.model.*;
 import com.petclinic.kcpetclinic.services.OwnerService;
 import com.petclinic.kcpetclinic.services.PetTypeService;
+import com.petclinic.kcpetclinic.services.SpecialtiesService;
 import com.petclinic.kcpetclinic.services.VetService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -19,11 +17,13 @@ public class DataLoader implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
     private  final PetTypeService petTypeService;
+    private final SpecialtiesService specialtiesService;
 
-    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialtiesService specialtiesService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
+        this.specialtiesService = specialtiesService;
     }
 
     @Override
@@ -73,17 +73,18 @@ public class DataLoader implements CommandLineRunner {
 
         System.out.println("....Owner data created...");
 
-
-
-
         Vet vet1 = new Vet();
         vet1.setFirstName("Gooz");
         vet1.setLastName("Goozian");
+        Specialty vet1Specialty = new Specialty();
+        vet1Specialty.setDescription("Dentistry");
         vetService.save(vet1);
 
         Vet vet2 = new Vet();
         vet2.setFirstName("Chosu");
         vet2.setLastName("Chosian");
+        Specialty vet2Specialty = new Specialty();
+        vet2Specialty.setDescription("Dermatology");
         vetService.save(vet2);
 
         System.out.println("....Vet data created...");
