@@ -28,6 +28,14 @@ public class DataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        int count = petTypeService.findAll().size();
+
+        if (count == 0) {
+            loadData();
+        }
+    }
+
+    private void loadData() {
 
         PetType dog = new PetType();
         dog.setName("Topol");
@@ -37,7 +45,19 @@ public class DataLoader implements CommandLineRunner {
         dog.setName("Calvin");
         PetType saveCatType = petTypeService.save(cat);
 
-        System.out.println("PeTypes Created.");
+        System.out.println("....PeTypes Created.");
+
+        Specialty dentistry = new Specialty();
+        dentistry.setDescription("Dentistry");
+        Specialty savedDentistry = specialtiesService.save(dentistry);
+
+        Specialty radiology = new Specialty();
+        radiology.setDescription("Radiology");
+        Specialty savedRadiology= specialtiesService.save(radiology);
+
+        Specialty anesthesia = new Specialty();
+        anesthesia.setDescription("Anesthesia");
+        Specialty savedAnesthesia = specialtiesService.save(anesthesia);
 
         Owner owner1 = new Owner();
         owner1.setFirstName("Kimia");
@@ -76,18 +96,15 @@ public class DataLoader implements CommandLineRunner {
         Vet vet1 = new Vet();
         vet1.setFirstName("Gooz");
         vet1.setLastName("Goozian");
-        Specialty vet1Specialty = new Specialty();
-        vet1Specialty.setDescription("Dentistry");
+        vet1.getSpecialties().add(radiology);
         vetService.save(vet1);
 
         Vet vet2 = new Vet();
         vet2.setFirstName("Chosu");
         vet2.setLastName("Chosian");
-        Specialty vet2Specialty = new Specialty();
-        vet2Specialty.setDescription("Dermatology");
+        vet2.getSpecialties().add(dentistry);
         vetService.save(vet2);
 
         System.out.println("....Vet data created...");
-
     }
 }
