@@ -31,7 +31,6 @@ public class Pet extends  BaseEntity{
 
     private String name;
 
-
     public PetType getPetType() {
         return petType;
     }
